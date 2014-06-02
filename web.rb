@@ -1,6 +1,7 @@
 require 'bundler'
 require 'json'
 require 'sinatra'
+require 'mechanize'
 
 get '/' do
   resp = <<"EOR"
