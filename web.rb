@@ -1,7 +1,7 @@
 require 'bundler'
 require 'sinatra'
 
-post '/nicothumb' do
+post '/gyagyagya' do
   content_type :text
   json = JSON.parse(request.body.read)
   if not json["events"].nil?
