@@ -18,6 +18,7 @@ end
 post '/gyagyagya' do
   content_type :text
   json = JSON.parse(request.body.read)
+  resp = nil
   if not json["events"].nil?
     json["events"].map do |e|
       if e["message"] && e["message"]["text"] =~ %r`^http://gyazo\.com/\w+$`
@@ -27,12 +28,15 @@ post '/gyagyagya' do
         agent.get(message)
         image_node = agent.page.parser.xpath("//meta[@name='twitter:image']").first.attributes["content"]
         if image_node
-          image_node.value
-        else
-          "\n"
+          resp = image_node.value
         end
       end
     end
+  end
+  if resp.nil?
+    "\n"
+  else
+    resp
   end
 end
 
