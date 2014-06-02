@@ -1,4 +1,5 @@
 require 'bundler'
+require 'json'
 require 'sinatra'
 
 get '/' do
