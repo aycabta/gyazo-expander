@@ -24,7 +24,7 @@ post '/gyagyagya' do
         message = e["message"]["text"]
         agent = Mechanize.new
         agent.user_agent = "Mozilla/5.0 (Windows NT 6.2; WOW64; rv:26.0) Gecko/20100101 Firefox/26.0"
-        agent.get(gyazo_url)
+        agent.get(message)
         image_node = @agent.page.parser.xpath("//meta[@name='twitter:image']").first.attributes["content"]
         if image_node
           image_node.value
