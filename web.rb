@@ -1,6 +1,18 @@
 require 'bundler'
 require 'sinatra'
 
+get '/' do
+  resp = <<"EOR"
+<html>
+<head>
+<title>The Nou</title>
+<body>
+<p><img src="http://i.gyazo.com/ed99df3af54e6c9102f41fe77d90b940.jpg" width="1024" height="768" /></p>
+</body>
+</html>
+EOR
+end
+
 post '/gyagyagya' do
   content_type :text
   json = JSON.parse(request.body.read)
